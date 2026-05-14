@@ -1,9 +1,13 @@
 import React from "react";
 import ToyCard from "./ToyCard";
 
-function ToyContainer() {
+function ToyContainer({ toys, onLike, onDelete }) {  // accept props
   return (
-    <div id="toy-collection">{/* Render the collection of ToyCards */}</div>
+    <div id="toy-collection">
+      {toys.map((toy) => (  // map over toys
+        <ToyCard key={toy.id} toy={toy} onLike={onLike} onDelete={onDelete} />
+      ))}
+    </div>
   );
 }
 
